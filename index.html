@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>HTML5 game - Celtra Challenge</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/fa/css/font-awesome.min.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+				<!-- Intro slide -->
+				<section>
+					<!-- Title -->
+          <h1>Celtra challenge</h1>
+          <h2>HTML<i class="fa fa-html5"></i> game</h2>
+
+          <!-- Name and contacts -->
+          <p>Marko Grešak</p>
+          <p>
+          	<small>
+	          	<a href="http://gresak.io">gresak.io</a> /
+	            <i class="fa fa-github"></i> <a href="https://github.com/markogresak">github.com/markogresak</a> /
+	            <i class="fa fa-twitter"></i> <a href="https://twitter.com/MGresak">@MGresak</a>
+            </small>
+          </p>
+          <p>
+          	<small>Play at <a href="http://gresak.io/celtra">gresak.io/celtra</a></small>
+          </p>
+        </section>
+
+        <!-- About the game -->
+				<section>
+					<h2>About the game</h2>
+
+					<p>Multiplayer combat game</p>
+
+					<p class="fragment">Randomly generated platform</p>
+
+					<div class="fragment">
+						<p>How to play:</p>
+						<ul>
+							<li>Move left: <kbd>A</kbd> or<kbd>←</kbd> <span class="mobile-controls">or touch left half of screen</span></li>
+							<li>Move left: <kbd>D</kbd> or<kbd>→</kbd> <span class="mobile-controls">or touch right half of screen</span></li>
+							<li>Attack: <kbd>Space</kbd> <span class="mobile-controls">or touch <img id="attack-btn" class="no-border" src="assets/img/attack-btn.png"></span></li>
+						</ul>
+					</div>
+					<span class="fragment" data-fragment-name="showMobileControls"></span>
+				</section>
+
+        <!-- Login screen -->
+        <section>
+          <h2>Login screen</h2>
+
+          <img class="no-border" src="assets/img/login.png">
+        </section>
+
+        <!-- Game screen -->
+        <section>
+          <h2>Game screen</h2>
+
+            <img class="screen overlapped no-border" src="assets/img/game-bg.png">
+            <img class="screen over platform no-border fragment" src="assets/img/platform.png">
+            <img class="screen over hp no-border fragment" src="assets/img/hp.png">
+            <img class="screen over player no-border fragment" src="assets/img/player.png">
+        </section>
+
+        <!-- Mobile view -->
+        <section>
+          <h2>Mobile view</h2>
+
+          <img class="screen overlapped no-border" src="assets/img/phone-view.png">
+          <img class="screen over phone-btn no-border fragment" src="assets/img/phone-view-btn.png">
+        </section>
+
+				<!-- Technologies -->
+        <section>
+          <h2>Technologies</h2>
+
+          <ul>
+            <li><i class="fa fa-html5"></i> HTML5  markup</li>
+						<li><i class="fa fa-css3"></i> CSS3  styling</li>
+						<li class="fragment"><img class="no-border" src="assets/img/dart-icon.png"> Dart</li>
+          </ul>
+        </section>
+
+				<!-- Why dart -->
+				<section>
+        	<h2>Dart?</h2>
+
+        	<p class="fragment">Alternative to JavaScript</p>
+        	<p class="fragment">"All in one" toolset</p>
+        	<p class="fragment">Powerful <a href="https://www.dartlang.org/tools/sdk/">SDK</a> and <a href="https://www.dartlang.org/tools/">tools</a></p>
+        	<div class="fragment">
+        		<p class="no-margin-bottom">Works in Dart VM (Dartium)</p>
+        		<p>or as JavaScript with<code> dart2js</code></p>
+        	</div>
+        	<p class="fragment">Standalone VM</p>
+				</section>
+
+				<!-- Deploying -->
+				<section>
+					<h2>Deploying Dart project</h2>
+
+					<p class="fragment">Dart has tools for serving projects</p>
+
+					<p class="fragment">Serve<code> web/</code>:<code> pub serve</code></p>
+
+          <p class="fragment">Run a single Dart file:<code> dart server.dart</code></p>
+
+          <h4 class="fragment inline">Why this way?</h4>
+          <p class="fragment inline">Decentralized server = simpler scalability</p>
+				</section>
+
+				<!-- How it works: Client -->
+				<section>
+					<h2><small>How does it work:</small> Client</h2>
+
+					<p class="fragment">Starts game with entered username</p>
+
+					<p class="fragment">Connects to server via <a href="https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart:html.WebSocket">dart:html.WebSocket</a></p>
+					<p class="fragment">Generates and renders platform</p>
+					<p class="fragment">Sends update to server when player moves</p>
+				</section>
+
+				<!-- How it works: Server -->
+				<section>
+					<h2><small>How does it work:</small> Server</h2>
+
+					<p class="fragment">Binds address and listens for requests</p>
+					<p class="fragment">Connected to clients via <a href="https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart:io.WebSocket">dart:io.WebSocket</a></p>
+					<p class="fragment">Handles player messages</p>
+					<p class="fragment">Broadcasts message to players</p>
+				</section>
+
+				<!-- Feedback, questions -->
+				<section>
+					<h2>Feedback, questions</h2>
+				</section>
+
+				<!-- Conclusion -->
+				<section>
+					<h3>Thank you for your attention</h3>
+
+          <div>
+            <small>Play at <a href="http://gresak.io/celtra">gresak.io/celtra</a></small>
+          </div>
+
+          <small>Slides: <a href="http://gresak.io/celtra/presentation">gresak.io/celtra/presentation</a></small>
+				</section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+			// Reveal.addEventListener('showMobileControls', function() {
+			// 	console.log('"customevent" has fired');
+			// });
+
+			Reveal.addEventListener('fragmentshown', function(e) {
+				try {
+          var fragmentName = e.fragment.dataset.fragmentName;
+          if(fragmentName === 'showMobileControls') {
+            var parent = e.fragment.parentNode;
+            if (parent.classList)
+              parent.classList.add('show-mobile-controls');
+            else
+              parent.className += ' ' + 'show-mobile-controls';
+          }
+        }
+        catch (err) {}
+			});
+
+      Reveal.addEventListener('fragmenthidden', function(e) {
+        try {
+          var fragmentName = e.fragment.dataset.fragmentName;
+          if(fragmentName === 'showMobileControls') {
+            var parent = e.fragment.parentNode;
+            if (parent.classList)
+              parent.classList.remove('show-mobile-controls');
+            else
+              parent.className.replace('show-mobile-controls','');
+          }
+        }
+        catch (err) {}
+      });
+
+    </script>
+
+  </body>
+</html>
